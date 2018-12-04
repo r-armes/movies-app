@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  year: 1
+  genre: MyString
+  director: MyString
+  duration: 1
+  description: MyText
+
+two:
+  title: MyString
+  year: 1
+  genre: MyString
+  director: MyString
+  duration: 1
+  description: MyText
