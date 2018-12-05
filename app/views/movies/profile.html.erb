@@ -2,6 +2,10 @@
 
 <h1>My Movies</h1>
 
+<% if @movies.length == 0 %>
+<h3>You havent uploaded any movies</h3>
+<%= link_to 'Upload one now!', new_movie_path %>
+<% else %>
 <table>
   <thead>
     <tr>
@@ -20,16 +24,13 @@
         <td><%= movie.title %></td>
         <td><%= movie.year %></td>
         <td><%= movie.genre %></td>
-        <td><%= link_to 'Show', movie %></td>
+        <td><%= link_to 'View', movie %></td>
         <% if movie.user_id == current_user.id  %>
           <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Movie', new_movie_path %>
+<% end %>
