@@ -3,6 +3,14 @@ class Movie < ApplicationRecord
   has_one_attached :image
   validate :image_type
 
+  def self.search(term)
+    if term
+      where('LOWER(title) LIKE ?', "%#{term.downcase}%").order('id DESC')
+    else
+      order('id DESC') 
+    end
+  end
+
   private
   def image_type
     if image.attached? == false

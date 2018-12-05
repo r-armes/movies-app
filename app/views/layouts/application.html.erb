@@ -11,6 +11,10 @@
 
   <body>
   <nav>
+    <%= form_tag(root_path, method: :get) do %>
+      <%= text_field_tag :term, nil, placeholder: "Search by title.." %>
+      <%= submit_tag 'Search' %>
+    <% end %>
     <%= link_to('Home', root_path) %>
       <% if user_signed_in? %>
         <%= link_to('My Movies', mymovies_path) %>
