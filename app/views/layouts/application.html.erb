@@ -17,12 +17,8 @@
         <%= link_to 'Upload Movie', new_movie_path %>
         <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link m-2 menu-item") %>
       <% else %>
-      <li class="nav-item">
         <%= link_to('Log In', new_user_session_path)  %>
-      </li>
-      <li>
         <%= link_to('Register Now', new_user_registration_path)  %>
-      </li>  
       <% end %>
   </nav>
     <%= yield %>
