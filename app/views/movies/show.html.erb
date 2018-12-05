@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <%= image_tag(@movie.image, width: '300') %>
+</p>
 
 <p>
   <strong>Title:</strong>
@@ -22,7 +25,7 @@
 
 <p>
   <strong>Duration:</strong>
-  <%= @movie.duration %>
+  <%= @movie.duration %> minutes
 </p>
 
 <p>
@@ -30,5 +33,14 @@
   <%= @movie.description %>
 </p>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<p>
+  <strong>Uploaded By:</strong>
+  <%= @movie.user.email %>
+</p>
+
+
+<% if @movie.user == current_user  %>
+  <%= link_to 'Edit', edit_movie_path(@movie) %> |
+  <%= link_to 'Destroy', @movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 <%= link_to 'Back', movies_path %>
