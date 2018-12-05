@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Movies</title>
+    <title>Moviesss</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   <nav>
-    <%= form_tag(root_path, method: :get) do %>
-      <%= text_field_tag :term, nil, placeholder: "Search by title.." %>
-      <%= submit_tag 'Search' %>
-    <% end %>
     <%= link_to('Home', root_path) %>
       <% if user_signed_in? %>
         <%= link_to('My Movies', mymovies_path) %>
@@ -24,6 +19,12 @@
         <%= link_to('Log In', new_user_session_path)  %>
         <%= link_to('Register Now', new_user_registration_path)  %>
       <% end %>
+      <br>
+      <%= form_tag(root_path, method: :get) do %>
+      <%= text_field_tag :term, nil, placeholder: "Search by title.." %>
+      <%= submit_tag 'Search' %>
+    <% end %>
+    </div>
   </nav>
     <%= yield %>
   </body>
